@@ -1,23 +1,431 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- Schema.org LocalBusiness 마크업(JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "2026년 틀니보험 완벽 가이드 센터",
+    "image": "https://도메인/logo_insurance.png",
+    "url": "https://도메인/denture-insurance",
+    "telephone": "1661-1234",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "서울 강남구 테헤란로 123",
+      "addressLocality": "서울시",
+      "addressRegion": "서울",
+      "postalCode": "06134",
+      "addressCountry": "KR"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "대한민국"
+    },
+    "priceRange": "₩₩₩",
+    "description": "2026년 최신 틀니보험 정보, 비용, 보장, 비교 분석, 추천 가입 전략 제공"
+  }
+  </script>
+
+  <!-- Google Fonts: Noto Sans KR (가독성 높은 한글 폰트) -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f9fc; /* Soft gray background */
+      color: #333;
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    header, section, footer {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06); /* Softer shadow effect */
+    }
+    a { color: #007bff; text-decoration: none; transition: color 0.3s ease; }
+    a:hover { text-decoration: underline; color: #0056b3; }
+    p, li { font-size: 1rem; margin-bottom: 15px; }
+
+    /* Typography */
+    h1 {
+      font-size: 2.8rem;
+      color: #0d47a1; /* Deep blue for authority */
+      text-align: center;
+      margin-top: 0;
+      line-height: 1.3;
+    }
+    h2 {
+      font-size: 2.2rem;
+      color: #1a237e; /* Slightly softer blue for subheadings */
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+      margin-top: 40px;
+    }
+    h3 {
+      font-size: 1.5rem;
+      color: #3f51b5; /* Medium blue accent */
+      border-left: 5px solid #64b5f6;
+      padding-left: 10px;
+      margin-top: 30px;
+    }
+    h4 {
+      font-size: 1.2rem;
+      color: #444;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+
+    /* Table of Contents (Navigation) */
+    nav.toc {
+      background: #e3f2fd; /* Light blue background for nav */
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 960px;
+    }
+    nav.toc h2 { border-bottom: none; color: #0d47a1; margin-top: 0; padding-bottom: 0; font-size: 1.8rem; }
+    nav.toc ul { list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 15px; }
+    nav.toc li { width: calc(50% - 10px); margin-bottom: 10px; }
+    nav.toc a { display: block; padding: 10px 15px; background: #ffffff; border-radius: 8px; font-weight: 500; color: #1a237e; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: background 0.3s ease; }
+    nav.toc a:hover { background: #cfd8dc; color: #0d47a1; text-decoration: none; transform: translateY(-1px); }
+
+    /* Tables */
+    table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 25px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+    th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+    th { background: #f0f8ff; color: #2c3e50; font-weight: 600; font-size: 1.05rem; }
+    tr:nth-child(even) { background: #fafafa; }
+    tr:last-child td { border-bottom: none; }
+
+    /* Call to Action Button */
+    .btn-cta {
+      display: inline-block;
+      padding: 16px 32px;
+      background: #ff6f00; /* Vibrant orange accent color */
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 8px 15px rgba(255, 111, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .btn-cta:hover { background: #e65100; transform: translateY(-2px); text-decoration: none; }
+    .btn-wrapper { text-align: center; margin-top: 30px; }
+
+    /* Form Styles */
+    form { background: #f9f9f9; padding: 25px; border-radius: 10px; border: 1px solid #eee; }
+    label { display: block; font-weight: 500; color: #555; margin-bottom: 5px; margin-top: 15px; }
+    input[type="text"], input[type="tel"], select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    textarea { resize: vertical; }
+
+    /* Additional UI components */
+    .notice-box { background: #fff3e0; border: 1px solid #ffcc80; padding: 20px; border-radius: 8px; margin: 20px 0; color: #3e2723; font-weight: 500; }
+    .notice-box strong { color: #e65100; }
+    .external-links { background: #f0f4f8; padding: 20px; border-radius: 8px; margin-top: 30px; }
+    .external-links ul { list-style: square; padding-left: 20px; }
+    .anchor { display: block; position: relative; top: -100px; visibility: hidden; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body { padding: 10px; }
+      header, section, footer { margin: 10px auto; padding: 20px; border-radius: 8px; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.8rem; }
+      h3 { font-size: 1.3rem; }
+      nav.toc li { width: 100%; }
+      table, th, td { display: block; }
+      tr { margin-bottom: 10px; border: 1px solid #ddd; display: block; border-radius: 8px; }
+      td { border: none; padding-bottom: 5px; }
+      td::before { content: attr(data-label); font-weight: bold; width: 120px; display: inline-block; }
+      th { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>2026년 틀니보험 완벽 가이드: 비용, 가입 조건, 비교 분석, 추천 상품</h1>
+    <p>틀니보험은 고령화 시대에 필수적인 대비책입니다. 2026년 최신 정보를 바탕으로 틀니 비용 절감 방법부터 가입 순위, 면책 기간, 저렴한 상품 선택 노하우까지 모두 알려드립니다.</p>
+    <div class="btn-wrapper">
+      <a class="btn-cta" href="#contact">전문가와 1:1 무료 상담 신청</a>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="페이지 내 이동">
+    <h2>목차: 틀니보험 핵심 정보 바로가기</h2>
+    <ul>
+      <li><a href="#introduction">틀니보험의 필요성과 정의</a></li>
+      <li><a href="#coverage-types">보장 내용과 특약 (틀니/임플란트/크라운)</a></li>
+      <li><a href="#cost-analysis">틀니보험 평균 비용 분석 (2026년 기준)</a></li>
+      <li><a href="#comparison">틀니보험 가입 시 고려 사항 및 순위 비교</a></li>
+      <li><a href="#checklist">필수 체크리스트: 면책/감액 기간 & 가입 조건</a></li>
+      <li><a href="#faq">자주 묻는 질문 (FAQ)</a></li>
+    </ul>
+  </nav>
+
+  <section id="introduction">
+    <span id="introduction-anchor" class="anchor"></span>
+    <h2>1. 틀니보험, 왜 필요하며 무엇인가?</h2>
+    <p>치아는 오복 중 하나라는 말이 있듯이, 건강한 치아는 삶의 질을 결정하는 중요한 요소입니다. 특히 고령화 사회가 심화되면서 노년층의 치과 치료 수요가 급증하고 있습니다. 국민건강보험공단 자료에 따르면, 65세 이상 노인 인구는 틀니와 임플란트 시술에 대한 건강보험 혜택을 받을 수 있지만, 혜택을 받더라도 본인 부담금이 상당합니다.</p>
+    <p>틀니보험은 이러한 치과 치료 비용을 보장하기 위해 설계된 상품입니다. 틀니, 임플란트, 크라운 등의 보철 치료부터 충치(충전 치료)까지 보장하며, 고령자 치과 치료 비용 부담을 크게 줄여줍니다. 단순한 치과 치료를 넘어, 노후의 삶의 질을 지키기 위한 필수적인 재테크 수단으로 인식되고 있습니다.</p>
+
+    <h3>1-1. 틀니와 임플란트 비용, 얼마나 들까?</h3>
+    <p>틀니 또는 임플란트 시술은 고가의 비급여 항목이 많습니다. 2026년 현재 기준으로도 임플란트 1개당 평균 비용은 100만 원에서 150만 원 사이이며, 틀니는 부분 틀니냐 완전 틀니냐에 따라 수백만 원에서 천만 원대까지 비용이 발생할 수 있습니다. 65세 이상 건강보험 적용을 받아도 본인 부담금은 만만치 않습니다. 예를 들어, 완전 틀니의 경우 건강보험 적용 시 본인 부담률이 30%로 책정되지만, 기초생활수급자 등 취약계층이 아닌 일반 건강보험 가입자에게는 30%의 비용도 큰 부담으로 다가옵니다.</p>
+
+    <h4>&lt;표 1&gt; 주요 치과 치료 평균 비용 (2026년 예상)</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>치료 종류</th>
+          <th>건강보험 적용 유무</th>
+          <th>평균 비용 (1개 기준)</th>
+          <th>비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>틀니 (완전/부분)</td>
+          <td>급여 적용 (65세 이상)</td>
+          <td>본인 부담금 30% (수백만원~천만원대)</td>
+          <td>7년에 1회 급여 적용</td>
+        </tr>
+        <tr>
+          <td>임플란트</td>
+          <td>급여 적용 (65세 이상)</td>
+          <td>본인 부담금 30% (약 30만~45만원)</td>
+          <td>평생 2개까지 급여 적용</td>
+        </tr>
+        <tr>
+          <td>크라운 치료</td>
+          <td>비급여</td>
+          <td>40만원 ~ 60만원</td>
+          <td>충치 정도에 따라 비용 변화</td>
+        </tr>
+        <tr>
+          <td>충치 치료 (레진)</td>
+          <td>비급여</td>
+          <td>5만원 ~ 10만원</td>
+          <td>급여 대상 아님</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="notice-box">
+      <strong>알아두세요:</strong> 치과 치료 비용은 병원마다 다르고, 건강보험 급여 기준은 2026년도에도 지속적으로 변경될 수 있습니다. 본 표의 내용은 평균적인 시장 가격을 참고로 작성되었습니다.
+    </div>
+  </section>
+
+  <section id="coverage-types">
+    <span id="coverage-types-anchor" class="anchor"></span>
+    <h2>2. 틀니보험 보장 내용 및 특약 상세 분석</h2>
+    <p>틀니보험을 가입할 때 가장 중요한 것은 '보장 내용'입니다. 상품마다 보장하는 범위와 금액이 다르므로, 가입 전 꼼꼼한 확인이 필요합니다. 틀니보험은 크게 '보철 치료'와 '보존 치료'로 나눌 수 있습니다.</p>
+
+    <h3>2-1. 보철 치료 (틀니, 임플란트, 크라운) 보장</h3>
+    <p>보철 치료는 치아를 상실했을 때 인공 치아를 만드는 치료를 말합니다. 틀니보험의 핵심 보장입니다.
+      <ul>
+        <li><strong>틀니 보장:</strong> 틀니 제작 및 수리 비용을 보장합니다. 완전 틀니와 부분 틀니 모두 해당되며, 상품에 따라 보장 금액이 다릅니다. 보통 1년에 1회 또는 2년에 1회 한도로 보장합니다.</li>
+        <li><strong>임플란트 보장:</strong> 임플란트 식립 비용을 보장합니다. 갯수 제한이 있는 경우가 많습니다. 예를 들어, 1년에 3개까지 보장하거나, 평생 횟수 제한을 두는 상품도 있습니다.</li>
+        <li><strong>브릿지 보장:</strong> 치아가 없는 부분 양 옆의 치아를 깎아 다리처럼 연결하는 치료입니다. 임플란트가 불가능한 경우에 대체제로 활용됩니다.</li>
+      </ul>
+    </p>
+
+    <h3>2-2. 보존 치료 (충전 치료) 보장</h3>
+    <p>보존 치료는 충치나 치아 손상 시 치아를 유지하기 위한 치료입니다.
+      <ul>
+        <li><strong>충전 치료:</strong> 충치로 손상된 부위를 제거하고 충전재로 채워 넣는 치료입니다. 충전재의 종류에 따라 아말감, 레진, 인레이/온레이(골드, 세라믹) 등으로 나뉩니다.</li>
+        <li><strong>크라운 치료:</strong> 충치가 심해 치아 전체를 씌우는 치료입니다. 틀니보험에서는 임플란트 다음으로 중요한 보장 항목입니다.</li>
+      </ul>
+    </p>
+
+    <h3>2-3. 면책 기간과 감액 기간의 이해</h3>
+    <p>틀니보험 가입 시 가장 중요한 핵심 용어입니다. 이 기간이 지난 후에야 보장 혜택을 받을 수 있습니다.
+      <ul>
+        <li><strong>면책 기간:</strong> 보험 가입 후 일정 기간 동안 보장받을 수 없는 기간입니다. 일반적으로 90일로 설정되며, 이 기간 내에 발생한 치아 질환은 보상하지 않습니다.</li>
+        <li><strong>감액 기간:</strong> 면책 기간 이후부터 일정 기간 동안 보험금의 일부만 지급되는 기간입니다. 보통 1년(365일) 또는 2년(730일)으로 설정되며, 이 기간 동안에는 보험금의 50%만 지급하는 경우가 많습니다.</li>
+      </ul>
+      <p>예를 들어, 가입 후 1년 이내에 임플란트 시술을 받을 경우, 보장 금액의 절반만 받을 수 있습니다. 2026년 들어 많은 상품들이 감액 기간을 줄이거나 없애는 추세지만, 고령자 보험은 여전히 감액 기간이 길게 설정되는 경우가 많으니 꼼꼼히 확인해야 합니다.</p>
+    </p>
+  </section>
+
+  <section id="cost-analysis">
+    <span id="cost-analysis-anchor" class="anchor"></span>
+    <h2>3. 2026년 틀니보험 평균 비용 분석: 가입 연령대별 견적</h2>
+    <p>틀니보험의 보험료는 가입자의 연령, 건강 상태, 선택한 보장 범위에 따라 크게 달라집니다. 특히 나이가 많을수록, 보장 금액이 클수록 보험료는 상승합니다. 저렴한 곳을 찾기 위해 가격만 비교하기보다는, 보장 내용을 꼼꼼히 확인하여 본인에게 맞는 상품을 선택하는 것이 중요합니다.</p>
+
+    <h3>3-1. 보험료를 결정하는 주요 요인</h3>
+    <p>틀니보험료는 다음과 같은 요인에 의해 결정됩니다.
+      <ol>
+        <li><strong>가입 연령:</strong> 2026년 기준, 40세 미만은 비교적 저렴하지만, 50대 이상부터는 보험료가 급격히 상승합니다. 실버 치아보험은 70~80대 가입도 가능하지만 보험료가 비싸집니다.</li>
+        <li><strong>보장 범위:</strong> 보철 치료(틀니, 임플란트)와 보존 치료를 모두 보장하는 종합형이 보철 치료만 보장하는 상품보다 비쌉니다.</li>
+        <li><strong>갱신 주기:</strong> 갱신형 상품은 초기 보험료가 저렴한 대신 갱신 시점에 보험료가 오를 수 있습니다. 비갱신형은 초기 보험료가 비싸지만 만기까지 동일한 금액을 유지합니다.</li>
+        <li><strong>만기 환급형/순수 보장형:</strong> 만기 환급형은 만기 시 일부 금액을 돌려받지만, 보험료 자체가 더 비쌉니다. 순수 보장형은 보험료가 저렴합니다.</li>
+      </ol>
+    </p>
+
+    <h3>3-2. 연령대별 예상 보험료 (2026년 기준, 예시)</h3>
+    <p>아래 표는 일반적인 치아보험 상품을 기준으로 한 예상 보험료입니다. 실제 견적은 개인의 건강 상태와 선택한 특약에 따라 달라질 수 있습니다.</p>
+    <h4>&lt;표 2&gt; 연령대별 월평균 예상 보험료 비교 (순수 보장형 기준)</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>연령대</th>
+          <th>보장 내용</th>
+          <th>월 평균 보험료 (예상)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>40대</td>
+          <td>임플란트 100만, 크라운 20만</td>
+          <td>3만원 ~ 5만원대</td>
+        </tr>
+        <tr>
+          <td>50대</td>
+          <td>임플란트 100만, 크라운 20만</td>
+          <td>5만원 ~ 7만원대</td>
+        </tr>
+        <tr>
+          <td>60대 이상 (실버 보험)</td>
+          <td>임플란트 100만, 틀니 100~200만</td>
+          <td>7만원 ~ 10만원대 이상</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="notice-box">
+      <strong>전문가 팁:</strong> 치아 건강이 비교적 양호한 40대~50대는 비갱신형으로 미리 가입하는 것이 장기적으로 저렴합니다. 이미 치아 상태가 좋지 않은 60대 이상은 갱신형을 선택하거나 보장 금액이 높은 상품을 선택하는 것이 유리할 수 있습니다.
+    </div>
+  </section>
+
+  <section id="comparison">
+    <span id="comparison-anchor" class="anchor"></span>
+    <h2>4. 틀니보험 가입 시 고려 사항 및 순위 비교</h2>
+    <p>수많은 보험사에서 틀니보험 상품을 판매하고 있습니다. 단순히 '틀니보험 저렴한곳'을 찾는 것보다는, '나에게 맞는' 상품을 찾는 것이 중요합니다. 가입 전 반드시 다음 사항을 비교 분석해야 합니다.</p>
+
+    <h3>4-1. 가입 조건: 면책/감액 기간 비교</h3>
+    <p>앞서 언급했듯이 면책 기간과 감액 기간은 보장을 받기 위해 기다려야 하는 기간입니다. 보험사마다 면책 기간(90일)은 비슷하지만, 감액 기간은 1년, 2년으로 다릅니다. 고령자 보험의 경우, 이 기간이 더 길거나 보장 금액이 적을 수 있습니다. 가능한 한 감액 기간이 짧은 상품을 선택하는 것이 좋습니다.</p>
+
+    <h3>4-2. 보장 한도 및 갱신 여부</h3>
+    <p>보장 한도는 임플란트, 틀니, 크라운의 연간/평생 보장 횟수와 금액을 말합니다. 예를 들어, A사는 임플란트를 평생 3개까지 보장하는 반면 B사는 연간 3개까지 보장할 수 있습니다. 갱신형/비갱신형 여부도 중요합니다. 갱신형은 보험료가 오를 수 있지만, 비갱신형은 한번 정해진 보험료가 변동되지 않습니다. 장기적인 관점에서 비갱신형이 유리할 수 있습니다.</p>
+
+    <h3>4-3. 틀니보험 순위: 내돈내산 후기와 추천 상품 분석</h3>
+    <p>특정 보험사의 순위를 매기는 것은 불가능하지만, '함께 많이 찾는' 상품의 특징을 분석해 볼 수 있습니다.
+      <ul>
+        <li><strong>A사:</strong> 임플란트 보장 금액이 높고, 갱신 주기(10년)가 긴 편입니다. 고령자도 가입하기 쉽습니다.</li>
+        <li><strong>B사:</strong> 보존 치료 보장(크라운, 레진)이 강점이며, 면책 기간이 짧은 편입니다. 젊은 층부터 고령층까지 폭넓게 선택됩니다.</li>
+        <li><strong>C사:</strong> 치아 건강이 비교적 좋은 사람들을 위한 '무사고 할인' 특약이 있어, 보험료를 절감할 수 있는 기회를 제공합니다.</li>
+      </ul>
+    </p>
+  </section>
+
+  <section id="checklist">
+    <span id="checklist-anchor" class="anchor"></span>
+    <h2>5. 틀니보험 가입 전 필수 체크리스트 (2026년 업데이트)</h2>
+    <p>보험 가입을 결정하기 전에 다음 체크리스트를 활용하여 현명하게 상품을 선택하세요. 특히 고령자의 경우, 이 체크리스트를 통해 보장 공백 없이 가입하는 것이 중요합니다.</p>
+
+    <ol>
+      <li><strong>나의 치아 건강 상태 파악:</strong> 현재 충치, 치주염 등 치료 중인 질환이 있다면 가입이 거절될 수 있습니다. 치료가 완료된 후 가입하거나, 유병력자 보험을 고려해야 합니다.</li>
+      <li><strong>면책 기간 및 감액 기간 확인:</strong> 가입 후 최소 1년 6개월(면책 기간 90일 + 감액 기간 1년) 동안은 보장을 제대로 받을 수 없음을 인지해야 합니다. 당장 치료가 필요한 사람은 가입 의미가 없을 수 있습니다.</li>
+      <li><strong>보장 항목 및 한도 비교:</strong> 틀니, 임플란트, 크라운 보장 금액이 충분한지, 횟수 제한이 있는지 확인합니다. 임플란트를 평생 2개 보장하는 건강보험과 중복 보장되는지 여부도 확인해야 합니다.</li>
+      <li><strong>고지 의무 준수:</strong> 과거 치과 치료 이력이나 현재 상태를 보험사에 정확하게 알려야 합니다. 허위 고지 시 나중에 보험금 지급이 거절될 수 있습니다.</li>
+      <li><strong>순수 보장형/만기 환급형 선택:</strong> 보험료를 절감하고 싶다면 순수 보장형을, 만기 시 환급을 원한다면 만기 환급형을 선택합니다.</li>
+      <li><strong>보험사별 견적 비교:</strong> 최소 3개 이상의 보험사 상품을 비교하여 최저가 견적을 확인합니다. 온라인 보험 비교 사이트를 활용하면 편리합니다.</li>
+    </ol>
+
+    <div class="btn-wrapper">
+      <a class="btn-cta" href="#contact">내게 맞는 틀니보험 견적 비교하기</a>
+    </div>
+  </section>
+
+  <section id="faq">
+    <span id="faq-anchor" class="anchor"></span>
+    <h2>6. 자주 묻는 질문 (FAQ)</h2>
+    <dl>
+      <dt>Q1: 틀니보험에 가입하면 국민건강보험 혜택을 못 받나요?</dt>
+      <dd>A: 아닙니다. 국민건강보험은 급여 항목에 대해 보장하고, 틀니보험은 비급여 항목이나 급여 항목의 본인 부담금을 보장하여 중복 보장이 가능합니다. 건강보험 혜택과 별개로 보험금을 받을 수 있습니다.</dd>
+
+      <dt>Q2: 고령자(70세 이상)도 틀니보험 가입이 가능한가요?</dt>
+      <dd>A: 네, 가능합니다. 최근에는 70~80대 고령자를 위한 실버 치아보험 상품이 출시되고 있습니다. 다만, 가입 연령이 높을수록 보험료가 비싸지고 면책/감액 기간이 길게 설정될 수 있으므로, 전문가와 상담을 통해 신중하게 결정해야 합니다.</dd>
+
+      <dt>Q3: 치과 치료를 받은 이력이 있어도 가입할 수 있나요?</dt>
+      <dd>A: 상품에 따라 다릅니다. 가입 전 고지 의무(치과 진료 여부)를 통해 심사를 거칩니다. 최근 1년 이내 치과 치료력이 있거나, 5년 이내 치주 질환 진단을 받은 경우 가입이 제한될 수 있습니다. 유병력자도 가입할 수 있는 상품도 있으니 상담 시 솔직하게 고지하는 것이 중요합니다.</dd>
+
+      <dt>Q4: 틀니보험 내돈내산 후기가 궁금합니다. 정말 도움이 되나요?</dt>
+      <dd>A: 내돈내산 후기를 보면, 치과 치료가 필요한 시점에 보험의 혜택을 톡톡히 본 사례가 많습니다. 특히 임플란트 1개 비용이 100만 원 이상인데, 보험 가입 후 1년이 지나서 시술을 받으면 100만 원 전액을 보장받을 수 있어 경제적인 부담을 크게 줄일 수 있습니다.</dd>
+
+      <dt>Q5: 틀니보험의 장점과 단점은 무엇인가요?</dt>
+      <dd><strong>장점:</strong> 고가의 치과 치료 비용을 미리 대비하여 노후 의료비 부담을 줄일 수 있습니다. <strong>단점:</strong> 면책 기간과 감액 기간이 있어 즉시 보장이 안 되며, 가입 시 건강 상태에 따라 보험료가 비싸질 수 있습니다.</dd>
+    </dl>
+  </section>
+
+  <section id="external-info">
+    <span id="external-info-anchor" class="anchor"></span>
+    <h2>7. 틀니보험 관련 외부 신뢰성 자료</h2>
+    <div class="external-links">
+      <p>틀니보험 및 치과 치료에 대한 공신력 있는 정보를 얻을 수 있는 사이트입니다.</p>
+      <ul>
+        <li><a href="https://www.nhis.or.kr/" target="_blank">국민건강보험공단: 건강보험 보장성 강화 정책 및 급여 기준 안내</a></li>
+        <li><a href="https://www.fss.or.kr/" target="_blank">금융감독원: 금융소비자 정보포털 파인 (금융상품 비교 공시)</a></li>
+        <li><a href="https://namu.wiki/w/%EC%B9%98%EC%95%84%EB%B3%B4%ED%97%98" target="_blank">나무위키: 치아보험 (개념, 면책/감액 기간 등 상세 정보)</a></li>
+        <li><a href="https://www.law.go.kr/법령/노인복지법" target="_blank">국가법령정보센터: 노인복지법 (노인 의료지원 관련 법률)</a></li>
+        <li><a href="https://www.mohw.go.kr/react/index.jsp" target="_blank">보건복지부: 보건 정책 및 치아 건강 관리 정보</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <span id="contact-anchor" class="anchor"></span>
+    <h2>견적 상담 문의: 2026년 최적의 틀니보험 찾기</h2>
+    <p>나에게 맞는 정확한 보험료와 보장 내용을 확인하려면 전문가의 도움이 필요합니다. 아래 정보를 입력해 주시면 최신 보험 상품을 비교 분석하여 맞춤 견적을 제공해 드립니다. 개인 정보는 상담 목적으로만 사용되며 안전하게 보호됩니다.</p>
+    <form action="/submit" method="POST" style="max-width:600px; margin:auto;">
+      <label for="name">이름<span style="color:red;">*</span></label>
+      <input type="text" id="name" name="name" required placeholder="예: 홍길동" />
+
+      <label for="phone">연락처<span style="color:red;">*</span></label>
+      <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678" pattern="[0-9\-]+" />
+
+      <label for="birthyear">출생연도 (가입 연령 확인)<span style="color:red;">*</span></label>
+      <input type="text" id="birthyear" name="birthyear" required placeholder="예: 1965" pattern="[0-9]{4}" maxlength="4" />
+
+      <label for="health">현재 치아 건강 상태<span style="color:red;">*</span></label>
+      <select id="health" name="health" required>
+        <option value="">선택하세요</option>
+        <option value="good">매우 건강함 (최근 5년 이내 치료 이력 없음)</option>
+        <option value="average">보통 (최근 1년 이내 충치 치료 이력 있음)</option>
+        <option value="poor">나쁨 (현재 치료 중이거나 치주 질환 진단 이력 있음)</option>
+      </select>
+
+      <label for="coverage-type">희망 보장 범위<span style="color:red;">*</span></label>
+      <select id="coverage-type" name="coverage_type" required>
+        <option value="">선택하세요</option>
+        <option value="all">종합형 (틀니, 임플란트, 크라운 모두)</option>
+        <option value="implant-only">임플란트/틀니 위주 보장</option>
+        <option value="basic">기본 보장 (크라운, 충치 위주)</option>
+      </select>
+
+      <label for="message">추가 문의 사항</label>
+      <textarea id="message" name="message" rows="4" placeholder="예: 60대 부모님 치아보험 상담 요청, 비갱신형 위주로 추천해 주세요."></textarea>
+
+      <button type="submit" class="btn-cta">무료 견적 상담 요청하기</button>
+    </form>
+  </section>
+
+
+  
